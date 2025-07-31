@@ -1,7 +1,6 @@
 import React from "react";
-import DeleteButton from "./DeleteButton";
-// import ContactItemBody from "./ContactItemBody";
-// import ContactItemImage from "./ContactItemImage";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function ContactItem({ imageUrl, name, tag, id, onDelete }) {
   return (
@@ -15,7 +14,9 @@ function ContactItem({ imageUrl, name, tag, id, onDelete }) {
         <p className="contact-item__username">@{tag}</p>
       </div>
 
-      <DeleteButton id={id} onDelete={onDelete} />
+      <button className="contact-item__delete" onClick={() => onDelete(id)}>
+        <FontAwesomeIcon icon={faTrash} />
+      </button>
     </div>
   );
 }
